@@ -215,19 +215,19 @@ def validate(
     val_loss = losses.mean()
 
     # produce an example:
-    instruction = "Recommend a movie for me to watch during the weekend and explain the reason."
-    fabric.print(instruction)
-    sample = {"instruction": instruction, "input": ""}
-    prompt = generate_prompt(sample)
-    encoded = tokenizer.encode(prompt, device=model.device)
-    max_returned_tokens = len(encoded) + 100
-    output = generate(
-        model, idx=encoded, max_returned_tokens=max_returned_tokens, max_seq_length=max_returned_tokens, temperature=0.8
-    )
-    output = tokenizer.decode(output)
-    fabric.print(output)
+    # instruction = "Hello, my name is"
+    # fabric.print(instruction)
+    # sample = {"instruction": instruction, "input": ""}
+    # prompt = generate_prompt(sample)
+    # encoded = tokenizer.encode(prompt, device=model.device)
+    # max_returned_tokens = len(encoded) + 100
+    # output = generate(
+    #     model, idx=encoded, max_returned_tokens=max_returned_tokens, max_seq_length=max_returned_tokens, temperature=0.8
+    # )
+    # output = tokenizer.decode(output)
+    # fabric.print(output)
 
-    model.reset_cache()
+    # model.reset_cache()
 
     model.train()
     return val_loss.item()
